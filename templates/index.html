@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<style>
+    .bacck {
+        position: center;
+        text-align: center;
+        animation: mymove 5s infinite;
+        font-family: "Segoe UI", serif;;
+    }
+
+    @keyframes mymove {
+        from {
+            background-color: teal;
+        }
+        to {
+            background-color: deepskyblue;
+        }
+    }
+
+</style>
+<body class="bacck" style="color: white">
+<div class="container" style="font-size: 30px">
+    {% for item in data %}
+        {{ item }}<br/>
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>
