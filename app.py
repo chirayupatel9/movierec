@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import functions
 import json
-import functions2,music
+import functions2, music
+
 app = Flask(__name__)
 app.secret_key = "hello"
 app.static_folder = 'static'
@@ -16,7 +17,8 @@ def home():
     else:
         return redirect(url_for('login', message="Login first"))
 
-@app.route('/moviehome',methods=["POST","GET"])
+
+@app.route('/moviehome', methods=["POST", "GET"])
 def moviehome():
     if request.method == "GET":
         if 'logged_in' in session:
@@ -52,23 +54,20 @@ def search_by_relevant():
         return render_template("index.html", data=bmg)
 
 
-
-
-
 @app.route('/content', methods=["POST", "GET"])
 def search_by_content():
     if request.method == "GET":
-            if 'logged_in' not in session:
-                return redirect(url_for('login', message="Login first"))
-            return render_template("searchbycontentbased.html")
+        if 'logged_in' not in session:
+            return redirect(url_for('login', message="Login first"))
+        return render_template("searchbycontentbased.html")
 
     else:
-        sbcc = request.form["sbc"]
-        sbcn = request.form["sbc2"]
+        sbcc = request.form["sbc2"]
+        sbcn = request.form["sbc3"]
         sbcn = int(sbcn)
         movies = functions.get_similar_movies_content_based(sbcc, sbcn)
-        return render_template("index.html", data=movies)
-        # return sbcn + sbcc
+        return render_template("index.html", data=movies, movie_name=sbcc, user_rating=sbcn)
+
 
 @app.route('/bookcontent', methods=["POST", "GET"])
 def search_by_bookscontent():
@@ -84,6 +83,7 @@ def search_by_bookscontent():
         books = functions2.get_similar_books_content_based(sb, sb2)
         return render_template("index.html", data=books, movie_name=sb2, user_rating=sb2)
 
+
 @app.route('/music', methods=["POST", "GET"])
 def search_by_musiccontent():
     if request.method == "GET":
@@ -95,7 +95,6 @@ def search_by_musiccontent():
         sb = request.form["sbm"]
         mus = music.getsomemusic(sb)
         return render_template("index.html", data=mus, song_name=sb)
-
 
 
 @app.route('/login', methods=["POST", "GET"])

@@ -126,7 +126,6 @@ print("Done")
 def get_similar_movies_content_based(movie_name, user_rating):
     similar_movies = movie_similarity_df[movie_name] * (user_rating - 2.5)
     similar_movies = similar_movies.sort_values(ascending=False)
-
     # print(similar_score[:10])
     moviees = []
     for moviee,rating in similar_movies[:10].iteritems():
