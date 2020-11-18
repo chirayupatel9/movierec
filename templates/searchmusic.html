@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background-color: whitesmoke;
+        font-family: "Segoe UI", serif;
+        animation-name: bo;
+        animation-duration: 10s;
+    }
+    @keyframes bo {
+        from{background-color: whitesmoke;}
+        to{background-color: floralwhite}
+
+    }
+    .jumbotron{
+        background-color: antiquewhite;
+        box-shadow:  5px 10px #888888;
+    }
+</style>
+<body>
+<form method="POST" action="">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Recommendation System</h1>
+        <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a>  - <a href = {{ url_for("search_by_musiccontent") }}>Music</a></p>
+        </div>
+            <div class="col-sm-4">
+                <h3>Get recommendation of Music</h3>
+                <input type="text" name="sbm" id="sbm1" placeholder="Song name">
+                <input type="submit" name="submit" placeholder="submit">
+
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+</body>
+</html>
