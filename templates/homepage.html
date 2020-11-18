@@ -1,117 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
-
-    <title>Home Page</title>
-
-    <style type="text/css">
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: #666;
-        }
-
-        h1, h2, h3, h4 {
-            margin: 0 0 3px 0;
-        }
-
-        h1 {
-            color: white;
-            font: bold 52px Helvetica, Arial, Sans-Serif;
-            text-shadow: 1px 1px dodgerblue, 2px 2px dodgerblue, 3px 3px dodgerblue;
-            -webkit-transition: all 0.12s ease-out;
-            -moz-transition: all 0.12s ease-out;
-            -o-transition: all 0.12s ease-out;
-            position: center;
-
-        }
-
-        h1:hover {
-            position: relative;
-            top: -3px;
-            left: -3px;
-            text-shadow: 1px 1px cadetblue, 2px 2px cadetblue, 3px 3px cadetblue, 4px 4px cadetblue, 5px 5px cadetblue, 6px 6px cadetblue;
-        }
-
-
-        #page-wrap {
-            width: 700px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        #about {
-            margin: 50px 0 0 0;
-        }
-
-        #about div {
-            text-transform: uppercase;
-            color: #eee;
-            font: 15px Helvetica, Arial, Sans-Serif;
-            -webkit-transition: all 0.12s ease-out;
-            -moz-transition: all 0.12s ease-out;
-            -o-transition: all 0.12s ease-out;
-        }
-
-        #about div:nth-child(1) {
-            font-size: 55px;
-            letter-spacing: 1px;
-        }
-
-        #about div:nth-child(2) {
-            font-size: 28px;
-            letter-spacing: 0.7px;
-        }
-
-        #about div:nth-child(3) {
-            font-size: 18px;
-            letter-spacing: 0.2px;
-        }
-
-        #about div:nth-child(4) {
-            font-size: 14px;
-        }
-
-        #about div:hover {
-            -webkit-transform: scale(1.1);
-            -moz-transform: scale(1.1);
-            -o-transform: scale(1.1);
-            text-shadow: 3px 3px 3px #333;
-        }
-
-        #about a {
-            color: teal;
-            text-decoration: none;
-        }
-
-        .a.link {
-            text-decoration: none;
-        }
-    </style>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+    body {
+        background-color: whitesmoke;
+        font-family: "Segoe UI", serif;
+        animation-name: bo;
+        animation-duration: 10s;
+    }
 
+    @keyframes bo {
+        from {
+            background-color: whitesmoke;
+        }
+        to {
+            background-color: floralwhite
+        }
+
+    }
+
+    .jumbotron {
+        background-color: antiquewhite;
+        box-shadow: 5px 10px #888888;
+    }
+</style>
 <body>
-
-<div id="page-wrap">
-
-    <h1><a href="{{ url_for("search_by_genre") }}" style="color: white">
-        Search by Genre</a></h1>
-    <h1><a href="{{ url_for("search_by_relevant") }}" style="color: white">
-        Search by Relevance</a>
-    </h1>
-    <h1><a href="{{ url_for("search_by_content") }}" style="color: white">
-        Search by Content rated</a></h1>
-    <h1><a href="{{ url_for("search_by_bookscontent") }}" style="color: white">
-        Search Books by Content rated</a></h1>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Recommendation System</h1>
+        <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a> -
+            <a href= {{ url_for("search_by_musiccontent") }}>Music</a></p>
+    </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Movies</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Books</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Music</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+        </div>
+    </div>
 </div>
-
 </body>
-
 </html>

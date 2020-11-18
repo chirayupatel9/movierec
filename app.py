@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import functions
 import json
-import functions2
+import functions2,music
 app = Flask(__name__)
 app.secret_key = "hello"
 app.static_folder = 'static'
@@ -13,6 +13,15 @@ def home():
         if 'logged_in' in session:
             pass
         return render_template("homepage.html")
+    else:
+        return redirect(url_for('login', message="Login first"))
+
+@app.route('/moviehome',methods=["POST","GET"])
+def moviehome():
+    if request.method == "GET":
+        if 'logged_in' in session:
+            pass
+        return render_template("search_movies.html")
     else:
         return redirect(url_for('login', message="Login first"))
 
@@ -49,9 +58,9 @@ def search_by_relevant():
 @app.route('/content', methods=["POST", "GET"])
 def search_by_content():
     if request.method == "GET":
-        if 'logged_in' not in session:
-            return redirect(url_for('login', message="Login first"))
-        return render_template("searchbycontentbased.html")
+            if 'logged_in' not in session:
+                return redirect(url_for('login', message="Login first"))
+            return render_template("searchbycontentbased.html")
 
     else:
         sbcc = request.form["sbc"]
@@ -74,7 +83,18 @@ def search_by_bookscontent():
         sb2 = int(sb2)
         books = functions2.get_similar_books_content_based(sb, sb2)
         return render_template("index.html", data=books, movie_name=sb2, user_rating=sb2)
-        # return sbcn + sbcc
+
+@app.route('/music', methods=["POST", "GET"])
+def search_by_musiccontent():
+    if request.method == "GET":
+        if 'logged_in' not in session:
+            return redirect(url_for('login', message="Login first"))
+        return render_template("searchmusic.html")
+
+    else:
+        sb = request.form["sbm"]
+        mus = music.getsomemusic(sb)
+        return render_template("index.html", data=mus, song_name=sb)
 
 
 

@@ -1,34 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
-    .bacck {
-        position: center;
-        text-align: center;
-        animation: mymove 5s infinite;
-        font-family: "Segoe UI", serif;;
+    body {
+        background-color: whitesmoke;
+        font-family: "Segoe UI", serif;
+        animation-name: bo;
+        animation-duration: 10s;
     }
+    @keyframes bo {
+        from{background-color: whitesmoke;}
+        to{background-color: floralwhite}
 
-    @keyframes mymove {
-        from {
-            background-color: teal;
-        }
-        to {
-            background-color: deepskyblue;
-        }
     }
-
+    .jumbotron{
+        background-color: antiquewhite;
+        box-shadow:  5px 10px #888888;
+    }
 </style>
-<body class="bacck" style="color: white">
-<div class="container" style="font-size: 30px">
-    {% for item in data %}
-        {{ item }}<br/>
-    {% endfor %}
-
-</div>
-
+<body>
+    <form method="POST" action="">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Recommendation System</h1>
+               <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a>  - <a href = {{ url_for("search_by_musiccontent") }}>Music</a></p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>{% for item in data %}
+                        <a href = "http://www.google.com/search?q={{ item }}">
+                        {{ item }}</a><br /><br>
+                    {% endfor %}</h3>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
 </body>
 
 </html>

@@ -48,5 +48,5 @@ def get_similar_books_content_based(book_name, user_rating):
         bookss.append(books)
     return bookss
 
-
 # print(get_similar_books_content_based("Cirque Du Freak (Cirque du Freak, #1) ", 7))
+

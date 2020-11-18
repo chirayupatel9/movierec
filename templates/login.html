@@ -1,27 +1,50 @@
-{% extends "base.html" %}
-{% block ht %}
-    Login
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background-color: whitesmoke;
+        font-family: "Segoe UI", serif;
+        animation-name: bo;
+        animation-duration: 10s;
+    }
+    @keyframes bo {
+        from{background-color: whitesmoke;}
+        to{background-color: floralwhite}
 
-    <h1 class="display-4">Login</h1>
-    <form method="post" action="{{ url_for('login') }}">
-        <div class="form-group"><label for="exampleInputEmail1">Username</label><input type="text"
-                                                                                       name="username"
-                                                                                       class="form-control"
-                                                                                       id="username"
-                                                                                       aria-describedby="usernameHelp"
-                                                                                       placeholder="Enter Username">
+    }
+    .jumbotron{
+        background-color: antiquewhite;
+        box-shadow:  5px 10px #888888;
+    }
+</style>
+<body>
+    <form method="POST" action="">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Recommendation System</h1>
+              <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a>  - <a href = {{ url_for("search_by_musiccontent") }}>Music</a></p>
+            </div>
+            <form method="post" action="{{ url_for('login') }}">
+                <div class="form-group"><label for="exampleInputEmail1">Username</label><input type="text"
+                        name="username" class="form-control" id="username" aria-describedby="usernameHelp"
+                        placeholder="Enter Username">
+                </div>
+                <div class="form-group"><label for="exampleInputPassword1">Password</label><input type="password"
+                        name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-        <div class="form-group"><label for="exampleInputPassword1">Password</label><input type="password"
-                                                                                          name="password"
-                                                                                          class="form-control"
-                                                                                          id="exampleInputPassword1"
-                                                                                          placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <p class="text-danger">{{ message }}</p>
+</body>
 
-{% endblock %}
+</html>
