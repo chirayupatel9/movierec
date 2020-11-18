@@ -67,7 +67,7 @@ def search_by_content():
         sbcn = request.form["sbc2"]
         sbcn = int(sbcn)
         movies = functions.get_similar_movies_content_based(sbcc, sbcn)
-        return render_template("index.html", data=movies, movie_name=sbcc, user_rating=sbcn)
+        return render_template("index.html", data=movies)
         # return sbcn + sbcc
 
 @app.route('/bookcontent', methods=["POST", "GET"])
