@@ -16,30 +16,37 @@
         animation-name: bo;
         animation-duration: 10s;
     }
+
     @keyframes bo {
-        from{background-color: whitesmoke;}
-        to{background-color: floralwhite}
+        from {
+            background-color: whitesmoke;
+        }
+        to {
+            background-color: floralwhite
+        }
 
     }
-    .jumbotron{
+
+    .jumbotron {
         background-color: antiquewhite;
-        box-shadow:  5px 10px #888888;
+        box-shadow: 5px 10px #888888;
     }
 </style>
 <body>
 <form method="POST" action="">
     <div class="container">
         <div class="jumbotron">
-            <h1>Recommendation System</h1>
-            <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a>  - <a href = {{ url_for("search_by_musiccontent") }}>Music</a></p>
-   </div>
+            <a href= {{ url_for("home") }}><h1>Recommendation System</h1></a>
+            <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a>
+                - <a href= {{ url_for("search_by_musiccontent") }}>Music</a></p>
+        </div>
         <div class="row">
             <div class="col-sm-4">
                 <h3><a href={{ url_for("search_by_genre") }}>Get recommendation by Genre</a></h3>
             </div>
             <div class="col-sm-4">
                 <h3><a href={{ url_for("search_by_relevant") }}>Get recommendation by Content - Based</a></h3>
-              </div>
+            </div>
             <div class="col-sm-4">
                 <h3><a href={{ url_for("search_by_content") }}>Get recommendation by Content - Rated</a></h3>
             </div>
