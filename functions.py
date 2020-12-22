@@ -1,9 +1,5 @@
 import numpy as np
 import pandas as pd
-import pickle
-import scipy.sparse as sp
-from scipy.sparse.linalg import svds
-from scipy.optimize import fmin_cg
 import matrix_factorization_utilities
 import os
 import datetime

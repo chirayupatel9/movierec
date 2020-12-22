@@ -28,7 +28,7 @@ def moviehome():
         return redirect(url_for('login', message="Login first"))
 
 
-@app.route('/genre', methods=["POST", "GET"])
+@app.route('/moviehome/genre', methods=["POST", "GET"])
 def search_by_genre():
     if request.method == "GET":
         if 'logged_in' not in session:
@@ -41,7 +41,7 @@ def search_by_genre():
         return render_template("index.html", data=bmg)
 
 
-@app.route('/Relevant', methods=["POST", "GET"])
+@app.route('/moviehome/Relevant', methods=["POST", "GET"])
 def search_by_relevant():
     if request.method == "GET":
         if 'logged_in' not in session:
@@ -54,7 +54,7 @@ def search_by_relevant():
         return render_template("index.html", data=bmg)
 
 
-@app.route('/content', methods=["POST", "GET"])
+@app.route('/moviehome/content', methods=["POST", "GET"])
 def search_by_content():
     if request.method == "GET":
         if 'logged_in' not in session:
@@ -126,4 +126,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

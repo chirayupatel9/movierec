@@ -34,28 +34,30 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-        <a href = {{ url_for("home") }}><h1>Recommendation System</h1></a>
+        <a href= {{ url_for("home") }}><h1>Recommendation System</h1></a>
         <p><a href={{ url_for("moviehome") }}>Movies</a> - <a href={{ url_for("search_by_bookscontent") }}>Books</a> -
             <a href= {{ url_for("search_by_musiccontent") }}>Music</a></p>
     </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>Movies</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>Books</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>Music</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <a href={{ url_for("moviehome") }}><h3>Movies</h3></a>
+            <p>"Murph, after you kids came along, your Mom, she said something to me I never quite understood. She said,
+                'Now, we're just here to be memories for our kids.' I think that now I understand what she meant. Once
+                you're a parent, you're the ghost of your children's future."</p>
+            <p>Interstellar (2014)</p>
+        </div>
+        <div class="col-sm-4">
+            <a href={{ url_for("search_by_bookscontent") }}><h3>Books</h3></a>
+            <p> "It does not do to dwell on dreams and forget to live."</p>
+            <p>- Harry Potter and the Sorceror's Stone</p>
+        </div>
+        <div class="col-sm-4">
+            <a href= {{ url_for("search_by_musiccontent") }}><h3>Music</h3></a>
+            <p>“One good thing about music, when it hits you, you feel no pain.” </p>
+            <p>- Bob Marley</p>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
